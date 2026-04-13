@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Poder dos Salmos — Ore com Fé, Decrete com Poder</title>
+<meta name="description" content="O guia completo para orar com os Salmos. 15 capítulos, orações prontas e plano de 30 dias para transformar sua vida espiritual.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:     #1B2B4A;
+    --navy-dk:  #0F1A2E;
+    --coral:    #C4572A;
+    --coral-lt: #D4724A;
+    --creme:    #FAFAF7;
+    --creme-dk: #F0EDE6;
+    --ouro:     #C4942A;
+    --slate:    #4A5568;
+    --texto:    #1A1A1A;
+    --linha:    #CBD5E0;
+    --verso-bg: #EEF2F8;
+    --oracao-bg:#FDF6EC;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: var(--creme);
+    color: var(--texto);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── UTILS ─────────────────────────────────────── */
+  .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+  .diamonds {
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px; margin: 20px auto;
+  }
+  .diamonds span {
+    display: inline-block; width: 8px; height: 8px;
+    background: var(--coral); transform: rotate(45deg);
+  }
+  .diamonds span:nth-child(1), .diamonds span:nth-child(5) { width: 5px; height: 5px; opacity: .6; }
+  .diamonds span:nth-child(2), .diamonds span:nth-child(4) { width: 7px; height: 7px; opacity: .8; }
+
+  .fade-up {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: none; }
+
+  /* ── HERO ──────────────────────────────────────── */
+  .hero {
+    background: linear-gradient(175deg, var(--navy-dk) 0%, var(--navy) 100%);
+    position: relative; overflow: hidden;
+    padding: 80px 0 70px;
+    border-left: 6px solid var(--coral);
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 6px; right: 0; bottom: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(196,87,42,.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-line-top, .hero-line-bot {
+    position: absolute; left: 30px; right: 30px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--ouro), transparent);
+    opacity: .5;
+  }
+  .hero-line-top { top: 18px; }
+  .hero-line-bot { bottom: 18px; }
+
+  .hero .container { text-align: center; }
+
+  .hero-badge {
+    display: inline-block;
+    font-family: 'Lora', serif; font-size: .7rem; letter-spacing: .18em;
+    color: var(--coral); text-transform: uppercase;
+    border: 1px solid rgba(196,87,42,.4); padding: 5px 16px;
+    margin-bottom: 28px; animation: fadeDown .8s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.2rem, 10vw, 5.5rem);
+    font-weight: 900; line-height: .95;
+    color: #F4EDE0; letter-spacing: -.01em;
+    animation: fadeDown .9s .1s ease both;
+  }
+  .hero-title span { color: var(--coral); }
+
+  .hero-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: clamp(1rem, 3.5vw, 1.25rem);
+    color: var(--ouro); margin-top: 20px; line-height: 1.5;
+    animation: fadeDown 1s .2s ease both;
+  }
+
+  .hero-details {
+    font-family: 'Lora', serif; font-size: .8rem;
+    color: rgba(203,213,224,.7); letter-spacing: .06em;
+    margin-top: 18px; animation: fadeDown 1s .3s ease both;
+  }
+
+  .hero-cta {
+    margin-top: 36px; animation: fadeDown 1s .4s ease both;
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* ── BUTTONS ───────────────────────────────────── */
+  .btn {
+    display: inline-block; text-decoration: none;
+    font-family: 'Lora', serif; font-weight: 500; letter-spacing: .04em;
+    padding: 16px 40px; border-radius: 2px; cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.25); }
+  .btn:active { transform: translateY(0); }
+
+  .btn-primary {
+    background: var(--coral); color: #fff; font-size: 1rem;
+    box-shadow: 0 4px 20px rgba(196,87,42,.4);
+  }
+  .btn-primary:hover { background: var(--coral-lt); }
+
+  .btn-primary-lg {
+    background: var(--coral); color: #fff;
+    font-size: 1.1rem; padding: 20px 48px;
+    box-shadow: 0 6px 28px rgba(196,87,42,.45);
+    width: 100%; text-align: center; display: block;
+  }
+  .btn-primary-lg:hover { background: var(--coral-lt); }
+
+  /* ── QUOTE ABERTURA ────────────────────────────── */
+  .quote-section {
+    background: var(--navy);
+    padding: 60px 0;
+  }
+  .quote-block {
+    border-left: 3px solid var(--navy);
+    background: var(--verso-bg);
+    padding: 28px 32px 20px;
+    margin: 0 auto;
+  }
+  .quote-block p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 1.15rem;
+    color: var(--navy); line-height: 1.65;
+  }
+  .quote-block cite {
+    display: block; margin-top: 12px;
+    font-size: .82rem; color: var(--slate);
+    font-style: normal; text-align: right;
+  }
+
+  /* ── PROBLEMA ──────────────────────────────────── */
+  .problema { background: var(--creme); padding: 72px 0; }
+
+  .section-label {
+    font-family: 'Lora', serif; font-size: .7rem;
+    letter-spacing: .2em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 12px;
+  }
+
+  .problema h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    font-weight: 700; color: var(--navy);
+    line-height: 1.2; margin-bottom: 24px;
+  }
+
+  .problema p {
+    font-size: 1.05rem; color: var(--slate);
+    margin-bottom: 16px; line-height: 1.8;
+  }
+
+  .problema p strong { color: var(--texto); }
+
+  .problema-destaque {
+    background: var(--oracao-bg);
+    border-left: 3.5px solid var(--coral);
+    padding: 20px 24px; margin: 28px 0;
+  }
+  .problema-destaque p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 1.1rem;
+    color: var(--navy); margin: 0; line-height: 1.6;
+  }
+
+  /* ── SOLUÇÃO ───────────────────────────────────── */
+  .solucao {
+    background: var(--navy);
+    padding: 72px 0;
+    border-left: 6px solid var(--coral);
+  }
+  .solucao h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    font-weight: 700; color: #F4EDE0;
+    line-height: 1.2; margin-bottom: 20px;
+  }
+  .solucao p {
+    color: rgba(244,237,224,.75);
+    font-size: 1.02rem; margin-bottom: 14px; line-height: 1.8;
+  }
+  .solucao p em { color: var(--ouro); font-style: italic; }
+
+  /* ── PRODUTO ───────────────────────────────────── */
+  .produto { background: var(--creme-dk); padding: 72px 0; }
+
+  .produto h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+    font-weight: 700; color: var(--navy); margin-bottom: 8px;
+  }
+  .produto .produto-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; color: var(--slate);
+    font-size: 1rem; margin-bottom: 36px;
+  }
+
+  .feature-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .feature-list li {
+    display: flex; align-items: flex-start; gap: 14px;
+    font-size: .97rem; color: var(--texto); line-height: 1.6;
+  }
+  .feature-list li::before {
+    content: '◆'; color: var(--coral);
+    font-size: .6rem; margin-top: 6px; flex-shrink: 0;
+  }
+  .feature-list li strong { color: var(--navy); }
+  .feature-list li .novo {
+    display: inline-block; background: var(--coral);
+    color: #fff; font-size: .6rem; letter-spacing: .08em;
+    text-transform: uppercase; padding: 1px 6px; border-radius: 2px;
+    margin-left: 6px; vertical-align: middle; font-family: 'Lora', serif;
+  }
+
+  /* ── DIVISOR ───────────────────────────────────── */
+  .divisor {
+    border: none; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--linha), transparent);
+    margin: 40px 0;
+  }
+
+  /* ── BÔNUS ─────────────────────────────────────── */
+  .bonus { background: var(--creme); padding: 72px 0; }
+  .bonus h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+    font-weight: 700; color: var(--navy); margin-bottom: 32px;
+  }
+  .bonus-cards { display: flex; flex-direction: column; gap: 20px; }
+  .bonus-card {
+    background: var(--verso-bg);
+    border-left: 3px solid var(--navy);
+    padding: 24px 26px;
+  }
+  .bonus-card-label {
+    font-size: .68rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--coral); font-family: 'Lora', serif; margin-bottom: 6px;
+  }
+  .bonus-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; color: var(--navy); margin-bottom: 8px;
+  }
+  .bonus-card p { font-size: .93rem; color: var(--slate); line-height: 1.7; }
+  .bonus-card .valor {
+    margin-top: 12px; font-size: .82rem;
+    color: var(--slate); text-decoration: line-through;
+  }
+
+  /* ── OFERTA ────────────────────────────────────── */
+  .oferta {
+    background: linear-gradient(170deg, var(--navy-dk), var(--navy));
+    padding: 80px 0; text-align: center;
+    border-left: 6px solid var(--coral);
+  }
+  .oferta-label {
+    font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 16px;
+  }
+  .oferta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 5vw, 2.4rem);
+    color: #F4EDE0; margin-bottom: 28px; line-height: 1.3;
+  }
+  .preco-antigo {
+    font-size: .95rem; color: rgba(203,213,224,.5);
+    text-decoration: line-through; margin-bottom: 4px;
+  }
+  .preco-atual {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 8vw, 4rem);
+    font-weight: 900; color: #F4EDE0;
+    line-height: 1; margin-bottom: 6px;
+  }
+  .preco-atual span { font-size: 1.4rem; vertical-align: super; margin-right: 2px; }
+  .preco-nota {
+    font-size: .82rem; color: rgba(203,213,224,.6);
+    margin-bottom: 32px; letter-spacing: .04em;
+  }
+  .oferta-lista {
+    list-style: none; text-align: left;
+    margin: 28px 0; display: flex; flex-direction: column; gap: 8px;
+  }
+  .oferta-lista li {
+    font-size: .9rem; color: rgba(244,237,224,.8);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .oferta-lista li::before { content: '✓'; color: var(--coral); font-weight: 700; }
+
+  /* ── GARANTIA ──────────────────────────────────── */
+  .garantia { background: var(--creme); padding: 60px 0; }
+  .garantia-box {
+    border: 1px solid var(--linha);
+    padding: 32px; text-align: center;
+    background: #fff;
+  }
+  .garantia-icon {
+    font-size: 2.5rem; margin-bottom: 12px;
+  }
+  .garantia h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; color: var(--navy); margin-bottom: 12px;
+  }
+  .garantia p { font-size: .95rem; color: var(--slate); line-height: 1.75; }
+
+  /* ── FECHAMENTO ────────────────────────────────── */
+  .fechamento { background: var(--creme-dk); padding: 72px 0; }
+  .fechamento h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+    color: var(--navy); margin-bottom: 20px; line-height: 1.3;
+  }
+  .fechamento p {
+    font-size: 1.02rem; color: var(--slate);
+    margin-bottom: 14px; line-height: 1.8;
+  }
+  .fechamento p strong { color: var(--navy); }
+
+  .versiculo-fechamento {
+    background: var(--verso-bg);
+    border-left: 3px solid var(--navy);
+    padding: 20px 24px; margin: 32px 0;
+  }
+  .versiculo-fechamento p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 1.05rem;
+    color: var(--navy); margin: 0; line-height: 1.6;
+  }
+  .versiculo-fechamento cite {
+    display: block; margin-top: 8px;
+    font-size: .8rem; color: var(--slate);
+    font-style: normal; text-align: right;
+  }
+
+  /* ── FAQ ───────────────────────────────────────── */
+  .faq { background: var(--creme); padding: 72px 0; }
+  .faq h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--navy); margin-bottom: 32px;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--linha); padding: 18px 0;
+  }
+  .faq-item:first-of-type { border-top: 1px solid var(--linha); }
+  .faq-q {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 600;
+    color: var(--navy); cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px;
+  }
+  .faq-q::after {
+    content: '+'; font-size: 1.4rem; font-weight: 300;
+    color: var(--coral); flex-shrink: 0;
+    transition: transform .3s;
+  }
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+  .faq-a {
+    font-size: .93rem; color: var(--slate); line-height: 1.75;
+    max-height: 0; overflow: hidden;
+    transition: max-height .4s ease, padding .3s ease;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding-top: 12px; }
+
+  /* ── RODAPÉ ────────────────────────────────────── */
+  footer {
+    background: var(--navy-dk); padding: 32px 0; text-align: center;
+  }
+  footer p {
+    font-size: .78rem; color: rgba(203,213,224,.4);
+    line-height: 1.8;
+  }
+
+  /* ── STICKY CTA (MOBILE) ───────────────────────── */
+  .sticky-cta {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+    background: var(--coral); padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 -4px 20px rgba(0,0,0,.25);
+    transform: translateY(100%); transition: transform .4s ease;
+  }
+  .sticky-cta.visible { transform: none; }
+  .sticky-cta-texto { color: #fff; }
+  .sticky-cta-texto strong { display: block; font-family: 'Playfair Display', serif; font-size: 1rem; }
+  .sticky-cta-texto span { font-size: .75rem; opacity: .85; }
+  .sticky-cta a {
+    background: #fff; color: var(--coral);
+    font-family: 'Lora', serif; font-weight: 600;
+    font-size: .85rem; padding: 10px 20px;
+    border-radius: 2px; text-decoration: none; white-space: nowrap;
+    transition: opacity .2s;
+  }
+  .sticky-cta a:hover { opacity: .9; }
+
+  /* ── RESPONSIVE ────────────────────────────────── */
+  @media (min-width: 640px) {
+    .hero { padding: 100px 0 90px; }
+    .sticky-cta { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ─────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-line-top"></div>
+  <div class="container">
+    <div class="hero-badge">Guia Espiritual Completo</div>
+    <h1 class="hero-title">O Poder<br><span>dos Salmos</span></h1>
+    <p class="hero-sub">O Guia Completo para Orar com Fé,<br>Decretar com Poder e Ver a Mão de Deus<br>Agir na Sua Vida</p>
+    <p class="hero-details">15 Capítulos &nbsp;·&nbsp; Orações Prontas &nbsp;·&nbsp; Combinações de Salmos &nbsp;·&nbsp; Plano de 30 Dias</p>
+    <div class="hero-cta">
+      <a href="#oferta" class="btn btn-primary">Quero Orar com Poder →</a>
+    </div>
+  </div>
+  <div class="hero-line-bot"></div>
+</section>
+
+<!-- ── QUOTE ─────────────────────────────────────────────────────── -->
+<section class="quote-section">
+  <div class="container">
+    <div class="quote-block fade-up">
+      <p>"Você não precisa de palavras perfeitas para orar.<br>
+      Precisa das palavras certas — as que Deus mesmo inspirou.<br>
+      Estas são os Salmos."</p>
+      <cite>— O Poder dos Salmos</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROBLEMA ──────────────────────────────────────────────────── -->
+<section class="problema">
+  <div class="container">
+    <p class="section-label fade-up">Você se identifica com isso?</p>
+    <h2 class="fade-up">Tem dias que você abre a boca para orar<br>e não sabe mais o que dizer a Deus.</h2>
+    <p class="fade-up">Você sente que suas palavras não estão chegando a lugar nenhum. Que Deus está distante. Que você está repetindo as mesmas frases de sempre — sem fé, sem profundidade, sem resposta.</p>
+    <p class="fade-up">Enquanto isso, a <strong>ansiedade não para</strong>. As <strong>contas não somem</strong>. O <strong>relacionamento tá pesado</strong>. A <strong>família preocupa</strong>. E você fica se perguntando: <em>por que pra outros parece funcionar e pra mim não?</em></p>
+
+    <div class="problema-destaque fade-up">
+      <p>A resposta não está em você orar mais forte. Está em orar com as palavras certas — as que Deus mesmo colocou na Bíblia para momentos exatamente como o seu.</p>
+    </div>
+
+    <p class="fade-up">Os Salmos são o único livro da Bíblia onde o <strong>ser humano fala com Deus</strong> — não Deus falando com o homem. São 150 orações escritas pelo Espírito Santo para cobrir cada situação da sua vida.</p>
+    <p class="fade-up">Quando você ora com um Salmo, você não está repetindo uma fórmula. Você está se unindo a uma voz que <strong>já provou que Deus responde.</strong></p>
+  </div>
+</section>
+
+<!-- ── SOLUÇÃO ────────────────────────────────────────────────────── -->
+<section class="solucao">
+  <div class="container">
+    <div class="diamonds"><span></span><span></span><span></span><span></span><span></span></div>
+    <h2 class="fade-up">Os Salmos funcionaram para Davi no deserto, para Moisés na travessia, para Paulo na prisão.</h2>
+    <p class="fade-up">Eles vão funcionar pra você também.</p>
+    <p class="fade-up">Mas existe uma diferença entre <em>ler</em> um Salmo por devoção e <em>decretar</em> um Salmo com fé. Ler é receber. Decretar é proclamar como verdade presente na sua vida.</p>
+    <p class="fade-up">Este guia foi criado para te ensinar exatamente isso — com conteúdo profundo, linguagem direta e <em>orações completas prontas</em> para cada situação da sua vida real.</p>
+    <div class="diamonds" style="margin-top: 30px;"><span></span><span></span><span></span><span></span><span></span></div>
+  </div>
+</section>
+
+<!-- ── PRODUTO ────────────────────────────────────────────────────── -->
+<section class="produto">
+  <div class="container">
+    <p class="section-label fade-up">O que está incluído</p>
+    <h2 class="fade-up">O Poder dos Salmos</h2>
+    <p class="produto-sub fade-up">15 capítulos · PDF completo · Acesso imediato</p>
+
+    <ul class="feature-list">
+      <li class="fade-up"><div><strong>Introdução ao paralelismo hebraico</strong> — entenda por que cada linha dos Salmos tem peso espiritual diferente e como isso muda completamente sua forma de orar</div></li>
+      <li class="fade-up"><div><strong>Os 5 tipos de Salmo e quando usar cada um</strong> — Louvor, Lamento, Confiança, Sabedoria e Real. Nunca mais ore o Salmo errado para a situação errada</div></li>
+      <li class="fade-up"><div><strong>Salmos de Proteção</strong> — Salmos 91 e 27 com análise versículo a versículo e oração completa para decretar sobre você e sua família</div></li>
+      <li class="fade-up"><div><strong>Salmos de Prosperidade</strong> — Salmos 1 e 112 com o decreto de abundância que transforma sua mentalidade financeira</div></li>
+      <li class="fade-up"><div><strong>Salmos de Cura</strong> — Salmos 103 e 30 com oração completa para receber a cura que vem do Pai</div></li>
+      <li class="fade-up"><div><strong>Salmos para Amor e Relacionamento</strong> — para restaurar, proteger e fortalecer vínculos</div></li>
+      <li class="fade-up"><div><strong>Salmos para Ansiedade e Medo</strong> — como lançar o peso sobre o Senhor de forma prática</div></li>
+      <li class="fade-up"><div><strong>Salmos para a Família</strong> — decreto de cobertura sobre cada membro da sua casa</div></li>
+      <li class="fade-up"><div><strong>Salmos para Luto e Perda</strong> <span class="novo">novo</span> — para quem está no fundo e precisa sentir que Deus está perto</div></li>
+      <li class="fade-up"><div><strong>Salmos para Dívidas e Crise Financeira</strong> <span class="novo">novo</span> — decreto de saída da escassez baseado em Salmos 37 e 34</div></li>
+      <li class="fade-up"><div><strong>Salmos para Decisões Importantes</strong> <span class="novo">novo</span> — como pedir direção espiritual com os Salmos 25 e 16</div></li>
+      <li class="fade-up"><div><strong>Como Decretar os Salmos com Fé</strong> — o método dos 3 minutos que você pode usar hoje mesmo</div></li>
+      <li class="fade-up"><div><strong>Plano de 30 Dias</strong> — um Salmo por dia com intenção e versículo-âncora para transformar sua rotina espiritual</div></li>
+      <li class="fade-up"><div><strong>Os 10 Salmos Mais Poderosos</strong> — guia rápido para ter sempre em mãos nas situações de urgência</div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── BÔNUS ──────────────────────────────────────────────────────── -->
+<section class="bonus">
+  <div class="container">
+    <hr class="divisor">
+    <p class="section-label fade-up">Incluído no seu pedido</p>
+    <h2 class="fade-up">+ 2 Bônus Exclusivos</h2>
+    <div class="bonus-cards">
+      <div class="bonus-card fade-up">
+        <p class="bonus-card-label">Bônus 1</p>
+        <h3>Orações Prontas por Situação</h3>
+        <p>20 orações completas baseadas nos Salmos para os momentos que mais importam: medo, crise financeira, relacionamento, insônia, batalha espiritual, luto, decisões e muito mais. Cada oração está pronta — é só abrir e orar.</p>
+        <p class="valor">Valor: R$27</p>
+      </div>
+      <div class="bonus-card fade-up">
+        <p class="bonus-card-label">Bônus 2</p>
+        <h3>Checklist 30 Dias de Salmos</h3>
+        <p>Imprimível. Cole na geladeira, na Bíblia ou no espelho. Marque "Orei" e "Meditei" a cada dia. Espaço para registrar gratidões semanais e as vitórias que você recebeu. Porque fé sem acompanhamento perde força.</p>
+        <p class="valor">Valor: R$17</p>
+      </div>
+    </div>
+    <hr class="divisor">
+  </div>
+</section>
+
+<!-- ── OFERTA ─────────────────────────────────────────────────────── -->
+<section class="oferta" id="oferta">
+  <div class="container">
+    <p class="oferta-label fade-up">Oferta de lançamento</p>
+    <h2 class="fade-up">Ebook principal<br>+ 2 bônus exclusivos</h2>
+    <p class="preco-antigo fade-up">De R$97</p>
+    <p class="preco-atual fade-up"><span>R$</span>37</p>
+    <p class="preco-nota fade-up">Pagamento único · Acesso imediato · Download em PDF</p>
+    <ul class="oferta-lista fade-up">
+      <li>O Poder dos Salmos — ebook completo (15 capítulos)</li>
+      <li>Bônus 1 — Orações Prontas por Situação</li>
+      <li>Bônus 2 — Checklist 30 Dias de Salmos</li>
+      <li>Garantia de 7 dias sem perguntas</li>
+    </ul>
+    <a href="LINK_KIWIFY_AQUI" class="btn btn-primary-lg fade-up">
+      Quero Orar com Poder por R$37 →
+    </a>
+    <p style="margin-top: 16px; font-size: .78rem; color: rgba(203,213,224,.45);">Pagamento seguro · Pix, cartão ou boleto</p>
+  </div>
+</section>
+
+<!-- ── GARANTIA ───────────────────────────────────────────────────── -->
+<section class="garantia">
+  <div class="container">
+    <div class="garantia-box fade-up">
+      <div class="garantia-icon">🛡️</div>
+      <h3>Garantia de 7 dias</h3>
+      <p>Se por qualquer motivo você não gostar, é só mandar um e-mail e devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia. Você não tem nada a perder — e uma vida espiritual transformada a ganhar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FECHAMENTO ─────────────────────────────────────────────────── -->
+<section class="fechamento">
+  <div class="container">
+    <h2 class="fade-up">Você não precisa de mais um devocional vazio.</h2>
+    <p class="fade-up">Você precisa das palavras que o próprio Deus colocou na Bíblia para momentos exatamente como o seu.</p>
+    <p class="fade-up">Davi escreveu o Salmo 23 enquanto era perseguido. O Salmo 27 com inimigos ao redor. O Salmo 34 em plena fuga. As promessas não vieram porque a situação era fácil — vieram porque ele <strong>persistiu na fé mesmo quando era difícil.</strong></p>
+
+    <div class="versiculo-fechamento fade-up">
+      <p>"A tua palavra é lâmpada para os meus pés<br>e luz para o meu caminho."</p>
+      <cite>— Salmo 119:105</cite>
+    </div>
+
+    <p class="fade-up"><strong>Faça o mesmo.</strong> Pegue este guia. Escolha um Salmo. Ore hoje. Amanhã. E no dia seguinte.</p>
+    <br>
+    <a href="#oferta" class="btn btn-primary fade-up">Garantir minha cópia por R$37 →</a>
+  </div>
+</section>
+
+<!-- ── FAQ ────────────────────────────────────────────────────────── -->
+<section class="faq">
+  <div class="container">
+    <h2 class="fade-up">Perguntas frequentes</h2>
+
+    <div class="faq-item fade-up">
+      <div class="faq-q">Precisa ser evangélico ou de uma denominação específica?</div>
+      <div class="faq-a">Não. O guia foi escrito para qualquer cristão que quer aprofundar sua vida de oração. Os Salmos são o coração da Bíblia e pertencem a todos.</div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q">Funciona no celular?</div>
+      <div class="faq-a">Sim. É PDF — abre em qualquer dispositivo. Celular, tablet, computador ou impresso. Você escolhe.</div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q">Quanto tempo leva para receber?</div>
+      <div class="faq-a">Acesso imediato após o pagamento. Você recebe o link no e-mail em segundos.</div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q">E se eu não gostar?</div>
+      <div class="faq-a">7 dias de garantia total. Manda um e-mail e devolvemos 100% sem nenhuma pergunta.</div>
+    </div>
+    <div class="faq-item fade-up">
+      <div class="faq-q">Já conheço os Salmos. Ainda vale para mim?</div>
+      <div class="faq-a">Sim — especialmente para você. A diferença está em como usar os Salmos com intenção, fé e método. Conhecer o texto é diferente de decretar o texto sobre a sua vida.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <p>O Poder dos Salmos · Todos os direitos reservados.<br>
+    Dúvidas? Entre em contato pelo e-mail do produto.</p>
+  </div>
+</footer>
+
+<!-- ── STICKY CTA ─────────────────────────────────────────────────── -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-texto">
+    <strong>O Poder dos Salmos</strong>
+    <span>Ebook + 2 Bônus · R$37</span>
+  </div>
+  <a href="#oferta">Comprar →</a>
+</div>
+
+<!-- ── JS ─────────────────────────────────────────────────────────── -->
+<script>
+  // Fade-up on scroll
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  fadeEls.forEach(el => observer.observe(el));
+
+  // Sticky CTA aparece após hero
+  const hero = document.querySelector('.hero');
+  const sticky = document.getElementById('stickyCta');
+  const stickyObserver = new IntersectionObserver(entries => {
+    sticky.classList.toggle('visible', !entries[0].isIntersecting);
+  }, { threshold: 0 });
+  stickyObserver.observe(hero);
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
